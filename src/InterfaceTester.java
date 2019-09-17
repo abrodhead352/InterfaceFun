@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class InterfaceTester {
     public static void main(String[] args) {
         System.out.println("Output 1: " + "zags".compareTo("apple"));
@@ -21,5 +23,34 @@ public class InterfaceTester {
         System.out.println("Output 9: " + myCircle.compareTo(myCircle));
         //interface: a set of methods that a class promises to implement
         //java provides a Comparable interface -- interfaces generally named x'able
+        Comparable myComparable = myCircle;
+
+        //we can define our own interfaces
+
+
+        Shape myShape = myCircle;/*
+        System.out.println(myShape.computeArea());
+        System.out.println(myShape.computePerimeter());
+        */
+        //with comparable, we can now sort circles
+
+        Circle[] circles = new Circle[5];
+        for(int i = 0; i < 5; i++) {
+            circles[i] = new Circle(i,i,5-i);
+        }
+        System.out.println(Arrays.toString(circles));
+        Arrays.sort(circles);
+        System.out.println(Arrays.toString(circles));
+
+        //task: define a rectangle that is also a shape
+        //make an array of shape references with some circles, some rectangles
+        Shape shapes[] = new Shape[5];
+        for(int i = 0; i < 3; i++) {
+            shapes[i] = new Circle(i,i,i);
+        }
+        for(int i = 3; i < 5; i++) {
+            shapes[i] = new Rectangle(i,i,i,5-i);
+        }
+        System.out.println(Arrays.toString(shapes));
     }
 }

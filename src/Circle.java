@@ -1,6 +1,6 @@
 import org.jetbrains.annotations.NotNull;
 
-public class Circle implements Comparable<Circle>{
+public class Circle implements Comparable<Circle>, Shape{
     //<T> is a generic type (parameterized)
     Point center;
     double radius;
@@ -38,7 +38,7 @@ public class Circle implements Comparable<Circle>{
 
     @Override
     public String toString() {
-        return "Center = " + center + ", radius = " + radius;
+        return "Circle: Center = " + center + ", radius = " + radius;
     }
     //Notes
     //nested classes -- classes defined inside a class
@@ -97,5 +97,15 @@ public class Circle implements Comparable<Circle>{
             return 1;
         }
         return 0;
+    }
+
+    @Override
+    public double computePerimeter() {
+        return Math.PI*radius*2;
+    }
+
+    @Override
+    public double computeArea() {
+        return Math.PI*radius*radius;
     }
 }
