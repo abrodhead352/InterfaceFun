@@ -44,13 +44,37 @@ public class InterfaceTester {
 
         //task: define a rectangle that is also a shape
         //make an array of shape references with some circles, some rectangles
-        Shape shapes[] = new Shape[5];
+        Shape shapes[] = new Shape[6];
         for(int i = 0; i < 3; i++) {
             shapes[i] = new Circle(i,i,i);
         }
+
         for(int i = 3; i < 5; i++) {
-            shapes[i] = new Rectangle(i,i,i,5-i);
+            shapes[i] = new Rectangle(i,i,i,i);
         }
-        System.out.println(Arrays.toString(shapes));
+
+        shapes[5] = new Shape() { //represents a 5x5 square
+            @Override
+            public double computePerimeter() {
+                return 20;
+            }
+
+            @Override
+            public double computeArea() {
+                return 25;
+            }
+
+            @Override
+            public String toString() {
+                return "Square: 5x5";
+            }
+        };
+
+        for(Shape s: shapes) {
+            System.out.println(s);
+            System.out.println(s.computeArea());
+            System.out.println(s.computePerimeter());
+            System.out.println("");
+        }
     }
 }

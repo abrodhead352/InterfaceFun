@@ -3,55 +3,18 @@ import org.jetbrains.annotations.NotNull;
 public class Rectangle implements Comparable<Rectangle>, Shape {
     private float width;
     private float length;
-    Point center;
-
-    public static class Point {
-
-        int x,y;
-
-        public Point() {
-            x = 0;
-            y = 0;
-        }
-
-        public Point(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-
-        @Override
-        public String toString() {
-            return "(" + x +", "+ y + ")";
-        }
-
-        public int getX() {
-            return x;
-        }
-
-        public void setX(int x) {
-            this.x = x;
-        }
-
-        public int getY() {
-            return y;
-        }
-
-        public void setY(int y) {
-            this.y = y;
-        }
-
-    }
+    Circle.Point center;
 
     public Rectangle(int x, int y, float width, float length) {
         this.width = width;
         this.length = length;
-        this.center = new Point(x,y);
+        this.center = new Circle.Point(x,y);
     }
 
     public Rectangle() {
         this.width = 1;
         this.length = 1;
-        this.center = new Point(0,0);
+        this.center = new Circle.Point(0,0);
     }
 
     @Override
